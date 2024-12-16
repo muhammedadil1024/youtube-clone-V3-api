@@ -17,14 +17,14 @@ const Body = () => {
                 <Outlet />
             </div>
             {/* footer */}
-            <footer className="text-center">
+            <footer className="text-center border-t-2 mt-2 pt-2">
                 <div className="">
-                    All icons by -
+                    All icons by - 
                     <a className="text-blue-600 font-medium" target="_blank" href="https://icons8.com">
                         Icons8
                     </a>
                 </div>
-                <div className="font-xl font-bold">
+                <div className="font-xl font-bold my-2">
                     &copy; {new Date().getFullYear()} Muhammed Adil
                 </div>
             </footer>
