@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// this slice contains menu state for toggling or closing
 const appSlice = createSlice({
     name: 'app',
     initialState: {

@@ -17,6 +17,7 @@ const WatchPage = () => {
     
     const [subscribe, setSubscribe] = useState(false);
 
+    // filer searching video from redux store, and getting specified to searchParam id.
     const filteredVideo = videoDetails.find(
         (video) => video.id === searchParams.get("v") || video.id?.videoId === searchParams.get("v")
     );
@@ -26,6 +27,7 @@ const WatchPage = () => {
     const [liveMessage, setLiveMessage] = useState("");
 
     useEffect(() => {
+        // getting the details of specific given channel detail
         const getSpecificChannel = async () => {
             if (!channelId) return;
             try {
@@ -46,13 +48,17 @@ const WatchPage = () => {
         getSpecificChannel();
     }, [dispatch, channelId]);
 
+    // getting sub-count if its available, else its 0
     const { subscriberCount } = channelDetails?.statistics ?? "0";
+    // getting like count else 0
     const likeCount = filteredVideo?.id && filteredVideo.statistics ? filteredVideo.statistics.likeCount : "0";
 
+    // for subscribe button
     const handleSubscribe = () => {
         setSubscribe(!subscribe)
     }
 
+    // for adding new message or comment into live chat
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(
@@ -71,6 +77,7 @@ const WatchPage = () => {
             ) : (        
                 <div className="w-full flex lg:gap-7 flex-wrap px-2 md:px-8 my-2 justify-center lg:justify-normal lg:flex-nowrap">
                     <div className="w-full lg:max-w-[56rem]">
+                        {/* if video availabel in redux, displaying the video like embed */}
                         {filteredVideo ? (
                             <iframe
                                 className="rounded-xl h-64 sm:h-80 md:h-[450px] w-full lg:max-w-[56rem]"
@@ -84,6 +91,7 @@ const WatchPage = () => {
                         ) : (
                             <p>Video not available.</p>
                         )}
+                        {/* Video details */}
                         <div className="md:max-w-[56rem] w-full mb-4">
                             <h1 className="font-bold my-3  text-xl md:text-2xl">{title}</h1>
                             {/* left and right section of channel details and buttons */}
@@ -155,15 +163,18 @@ const WatchPage = () => {
                             </div>
                             <p className="bg-[#f1f1f1] p-4 rounded-lg text-sm md:text-base max-w-full">{description}</p>
                         </div>
+                        {/* comments list */}
                         <div className="w-full md:px-2">
                             <CommentsContainer />
                         </div>
                     </div>
+                    {/* live chat functionality */}
                     <div className="w-full lg:w-1/3 border-2 h-fit rounded-xl lg:my-0 lg:mx-2">
                         <h4 className="text-[1.125rem] md:text-xl mb-2 border-b px-3 md:px-6 py-3">Live chat</h4>
                         <div className="h-[300px] sm:h-[480px] overflow-y-scroll overflow-x-hidden">
                             <LiveChat />
                         </div>
+                        {/* form for adding new comments to live chat for a user */}
                         <form
                             className="flex items-center gap-2 md:gap-3 border-t px-2 md:px-6 py-2"
                             onSubmit={(e) => handleSubmit(e)}

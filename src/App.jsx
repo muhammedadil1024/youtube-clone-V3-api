@@ -33,7 +33,9 @@ const appRouter = createBrowserRouter([
 function App() {
 
     return (
+        // Redux store provider
         <Provider store={store}>
+            {/* router provider for routing */}
             <RouterProvider router={appRouter} />
         </Provider>
     );

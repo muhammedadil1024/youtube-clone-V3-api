@@ -17,6 +17,7 @@ const SearchResults = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        // for getting search video details through V3 API and SearchQuery 
         const getSearchVideos = async () => {
             try {
                 setLoading(true);
@@ -36,6 +37,7 @@ const SearchResults = () => {
         getSearchVideos();
     }, [encodedSearchQuery, dispatch]);
 
+    // for clicking playlist or a Youtube channel, it will show a alert, else will goes to watch page to show the video
     const handlePlaylistClick = (event, video) => {
         let alertMessage = "";
 
@@ -59,6 +61,7 @@ const SearchResults = () => {
                 <div className="px-2 md:px-4">
                     <FilterButtons />
                     <div className="mt-8">
+                        {/* when clicking videos it will goes to Watch Page */}
                         {searchVideos &&
                             searchVideos.map((video) => (
                                 <Link

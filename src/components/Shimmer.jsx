@@ -1,4 +1,4 @@
-
+// Shimmer Cards for Home page videos
 const VideoShimmer = () => {
     return (
         <div className="restaurant-list">
@@ -18,6 +18,7 @@ const VideoShimmer = () => {
 
 export default VideoShimmer;
 
+// Shimmer for WatchPage, video watch page
 export const WatchShimmer = () => {
     return (
         <div className="watch-shimmer-card flex flex-wrap md:flex-nowrap">
@@ -34,6 +35,7 @@ export const WatchShimmer = () => {
     );
 }
 
+// Shimmer for SearchResult page
 export const SearchShimmer = () => {
     return (
         <div>

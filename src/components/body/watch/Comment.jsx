@@ -1,4 +1,4 @@
-
+// displaying each comments from CommentsContainer
 const Comment = ({ data }) => {
 
     const { name, text } = data;

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// this slice is for storing details of each single video like subscribers, like
 const videoSlice = createSlice({
     name: "video",
     initialState: {

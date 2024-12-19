@@ -14,6 +14,7 @@ const VideoContainer = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        // getting video thumbnails through youtube V3 API
         const getVideos = async () => {
             try {
                 setLoading(true);
@@ -44,6 +45,7 @@ const VideoContainer = () => {
                     {videos &&
                         videos.map((video) => (
                             <Link to={"/watch?v=" + video.id} key={video.id}>
+                                {/* passing video data to video card */}
                                 <VideoCard info={video} />
                             </Link>
                         ))}

@@ -1,6 +1,6 @@
 import Comment from "./Comment";
 
-
+// list of comments data static
 const commentsData = [
     {
         id: 1,
@@ -99,12 +99,14 @@ const CommentsList = ({ comments }) => {
         <div key={comment.id}>
             <Comment data={comment} />
             <div className="pl-2 md:pl-5 border-l-2 ml-5 md:ml-11">
+                {/* for nesting passing comment replays through same component */}
                 <CommentsList comments={comment.replies} />
             </div>
         </div>
     ));
 };
 
+// displaying all comments
 const CommentsContainer = () => {
     return (
         <div className="w-full my-3 md:max-w-[56rem]">

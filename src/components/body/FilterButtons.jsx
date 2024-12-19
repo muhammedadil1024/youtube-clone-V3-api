@@ -1,5 +1,6 @@
 import Button from "./Button"
 
+// Filter buttons content list
 const filterContent = [
     {
         id: 0,
@@ -50,7 +51,6 @@ const filterContent = [
         text:"T-Series",
     },
 ];
-
 const FilterButtons = () => {
     return (
         <div className="flex justify-center gap-[0.7rem] md:gap-[0.9rem] mt-2 overflow-auto whitespace-nowrap md:hidden lg:flex no-scrollbar">

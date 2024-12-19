@@ -1,4 +1,4 @@
-
+// video card for each videos
 const VideoCard = ({ info }) => {
 
     const { snippet, statistics } = info;

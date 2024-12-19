@@ -5,8 +5,10 @@ import { generateRandomMessage, generateRandomName } from "../../../utils/helper
 
 const LiveChat = () => {
     const dispatch = useDispatch();
+    // subscribing chatSlice
     const chatMessages = useSelector((store) => store.chat.messages);
 
+    // displaying live chat messages 
     useEffect(() => {
         const pollingTime = setInterval(() => {
             // Api Polling

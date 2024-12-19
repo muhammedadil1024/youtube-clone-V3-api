@@ -1,5 +1,4 @@
-// This hook is using for getting window size for responsivess
-
+// This hook is using for getting window size for responsiveness
 import{ useState, useEffect } from "react";
 
 const useWindowDimensions = () => {

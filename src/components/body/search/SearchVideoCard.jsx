@@ -1,3 +1,4 @@
+// displaying each search result video
 const SearchVideoCard = ({ info }) => {
     const { channelTitle, title, thumbnails, publishedAt, description } = info.snippet;
     const isPlaylist = !!info.id.playlistId;
@@ -5,6 +6,7 @@ const SearchVideoCard = ({ info }) => {
 
     return (
         <div className="flex flex-wrap w-full mb-4 md:gap-4">
+            {/* if its a youtube channel, the thumbnail style will change */}
             {isChannel ? (
                 <div className="flex items-center justify-evenly">
                     <div className="">
@@ -31,6 +33,7 @@ const SearchVideoCard = ({ info }) => {
                             alt="Channel thumbnail or video thumbnail"
                             className="rounded-lg"
                         />
+                        {/* if the video is a playilist it will show a tag that says its a playist. */}
                         {isPlaylist && (
                             <span className="playlist-flag absolute top-2 right-2 bg-red-600 text-white px-2 py-1 text-xs rounded">
                                 Playlist

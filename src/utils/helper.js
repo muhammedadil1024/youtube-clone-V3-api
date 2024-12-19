@@ -1,3 +1,4 @@
+// names list for random selection of live chat name
 var nameList = [
     "Time",
     "Past",
@@ -175,10 +176,12 @@ var nameList = [
     "Paradox",
 ];
 
+// generating random names from above list and returning name
 export const generateRandomName = () => {
     return nameList[Math.floor(Math.random() * nameList.length)];
 }
 
+// generating random messages from below characters and returning message
 export const generateRandomMessage = (length) => {
     let result = "";
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";

@@ -8,4 +8,5 @@ export const YOUTUBE_CHANNELS_API = import.meta.env.VITE_YOUTUBE_CHANNELS_API;
 
 export const YOUTUBE_SEARCH_RESULTS_API = import.meta.env.VITE_YOUTUBE_SEARCH_RESULTS_API;
 
+// offset limit for live chat 
 export const OFFSET_LIVE_CHAT = 25;

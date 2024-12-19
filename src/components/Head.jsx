@@ -19,14 +19,17 @@ const Head = () => {
 
     const dispatch = useDispatch();
 
+    // handling menu when clicking using redux
     const toggleMenuHandler = () => {
         dispatch(toggleMenu());
     };
 
+    // subscribing to specific store
     const searchCache = useSelector((store) => store.search);
 
     useEffect(() => {
         try {
+            // using debouncing for getting search query suggestion though useEffect and setTimeout
             const timer = setTimeout(() => {
                 const getSearchSuggestion = async () => {
                     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
@@ -51,6 +54,7 @@ const Head = () => {
                 }
             }, 200);
             return () => {
+                // clearing the timeout 
                 clearTimeout(timer);
             };
         } catch (e) {
@@ -59,17 +63,20 @@ const Head = () => {
         }
     }, [searchQuery, searchCache, dispatch]);
 
+    // this will navigate to searchResult page when clicking any search suggestion
     const handleSuggestionClick = (suggestion) => {
         setSearchQuery(suggestion);
         navigate(`/results?search_query=${suggestion}`);
     };
 
+    // this is for responsive search box, when onMouseDown, it will call
     const toggleModal = () => {
         setIsModalVisible(!isModalVisible); // Toggle modal visibility
     };
 
     return (
         <div className="grid grid-flow-col gap-2 px-1 md:px-3 shadow-md md:shadow-none">
+            {/* hamburger menu and youtube logo */}
             <div className="flex items-center justify-self-start">
                 <img
                     src="/src/assets/hamburger-menu.png"
@@ -81,12 +88,14 @@ const Head = () => {
                     <img src="/src/assets/youtube-logo.jpg" className="w-28" alt="Youtube logo" />
                 </Link>
             </div>
+            {/* search input box, this will be inside a modal box when the screen size is below 768px */}
             <div
                 className={`${
                     widthMd ? "w-full flex justify-self-center mt-3 px-2" : "w-full flex justify-self-center px-2"
                 }`}
             >
                 <div className="w-full flex">
+                    {/* this input box will be hidden when responsive and the modals input will be available */}
                     <input
                         type="search" //w-580 -normal
                         className={`${
@@ -125,6 +134,7 @@ const Head = () => {
                         isModalVisible ? "flex" : "hidden"
                     } fixed inset-0 z-10 overflow-y-auto  justify-center w-full h-full`}
                 >
+                    {/* this will be visible when the search button click */}
                     {isModalVisible && (
                         <div className="w-full">
                             <div className="p-3 w-full max-h-full">
@@ -139,6 +149,7 @@ const Head = () => {
                                             <img src="/src/assets/left-arrow.png" className="w-6" alt="left arrow" />
                                             <span className="sr-only">Close modal</span>
                                         </button>
+                                        {/* modal's inside input box */}
                                         <input
                                             autoFocus
                                             type="search" //w-580 -normal
@@ -150,7 +161,7 @@ const Head = () => {
                                             onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
                                         />
                                     </div>
-                                    {/* Modal body */}
+                                    {/* Modal body - the suggestion will appear here on modal body */}
             
                                         {!widthMd && showSuggestions && searchQuery.length !== 0 && (
                                             <div className="w-full px-2">
@@ -174,6 +185,7 @@ const Head = () => {
                     )}
                 </div>
                 {/* ------------------------------------------------ Modal - End ---------------------------------------------------- */}
+                {/* this suggestion will show when it on larger screen according to normal input box */}
                 {widthMd && showSuggestions && searchQuery.length !== 0 && (
                     <div
                         className={`${
@@ -194,6 +206,7 @@ const Head = () => {
                     </div>
                 )}
             </div>
+            {/* user icon */}
             <div className="justify-self-end content-center">
                 <img src="/src/assets/comment-user2.png" className="w-7 md:w-8 mr-1 cursor-pointer" alt="User icon" />
             </div>

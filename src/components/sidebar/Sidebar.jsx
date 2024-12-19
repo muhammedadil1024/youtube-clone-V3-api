@@ -5,6 +5,7 @@ import { closeMenu } from "../../utils/redux/appSlice";
 import { useEffect } from "react";
 
 const Sidebar = () => {
+    // subscribing to specific store, to show menu sidebar links
     const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
     const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const Sidebar = () => {
 
     return (
         <div>
+            {/* this will show if screen is larger, this appear like a normal sidebar */}
             {widthMd ? (
                 <div className="p-2 min-w-56">
                     <div>
@@ -78,6 +80,7 @@ const Sidebar = () => {
                     </div>
                 </div>
             ) : (
+                // this will appear when screen below 768px, this will be a drawer sidebar with background opacity 0.5
                 <>
                     {/* Backdrop Overlay */}
                     <div

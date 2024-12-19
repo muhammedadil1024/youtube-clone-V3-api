@@ -14,7 +14,7 @@ const Body = () => {
             <Head />
             <div className={`w-full ${widthMd ? "grid grid-flow-col" : "flex flex-col"} md:px-3`}>
                 <Sidebar />
-                <Outlet />
+                <Outlet />  {/* this outlet provides other components to this body. */}
             </div>
             {/* footer */}
             <footer className="text-center border-t-2 mt-2 pt-2">
