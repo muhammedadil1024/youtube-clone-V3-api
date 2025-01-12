@@ -108,6 +108,7 @@ const Head = () => {
                         onChange={(e) => setSearchQuery(e.target.value)}
                         onFocus={() => setShowSuggestions(true)}
                         onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
+                        required
                     />
                     <button
                         type="button"
