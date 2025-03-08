@@ -25,7 +25,7 @@ const Body = () => {
                     </a>
                 </div>
                 <div className="font-xl font-bold my-2">
-                    &copy; {new Date().getFullYear()} Muhammed Adil
+                    &copy; {new Date().getFullYear()} <a className="no-underline" href="https://github.com/muhammedadil1024">Muhammed Adil. all rights reserved</a>
                 </div>
             </footer>
         </div>
