@@ -7,6 +7,14 @@ import { GOOGLE_API_KEY, YOUTUBE_CHANNELS_API } from "../../../utils/config";
 import LiveChat from "./LiveChat";
 import { addMessage } from "../../../utils/redux/chatSlice";
 import { WatchShimmer } from "../../Shimmer";
+// static images
+import user from "../../../assets/user.png";
+import tick from "../../../assets/tick.png";
+import like from "../../../assets/like.png";
+import share from "../../../assets/share.png";
+import download from "../../../assets/download.png";
+import commentUser2 from "../../../assets/comment-user2.png";
+import send from "../../../assets/send.png";
 
 const WatchPage = () => {
 
@@ -101,14 +109,14 @@ const WatchPage = () => {
                                     {/* image and title text */}
                                     <div className="flex items-center gap-5">
                                         <div>
-                                            <img src="/src/assets/user.png" className="w-8 md:w-10" alt="User icon" />
+                                            <img src={user} className="w-8 md:w-10" alt="User icon" />
                                         </div>
                                         <div>
                                             <div className="flex items-center gap-1">
                                                 <h3 className="font-semibold text-base md:text-lg">
                                                     {channelDetails?.snippet?.title}
                                                 </h3>
-                                                <img src="/src/assets/tick.png" className="w-4 h-4" alt="tick" />
+                                                <img src={tick} className="w-4 h-4" alt="tick" />
                                             </div>
                                             <h5 className="text-[#606060]">
                                                 {subscriberCount ? subscriberCount : 0} subscribers
@@ -135,7 +143,7 @@ const WatchPage = () => {
                                     <button className="bg-[#f1f1f1] hover:bg-[#e4e2e2]/90 font-medium text-sm md:text-base px-2 sm:px-4 py-1 md:py-2 text-center inline-flex items-center rounded-full">
                                         <img
                                             className="w-6 md:w-7 me-1 md:me-2"
-                                            src="/src/assets/like.png"
+                                            src={like}
                                             alt="like button"
                                         />
                                         {likeCount.slice(0, 2)}K
@@ -143,7 +151,7 @@ const WatchPage = () => {
                                     <button className="bg-[#f1f1f1] hover:bg-[#e4e2e2]/90 text-sm md:text-base font-medium px-2 sm:px-4 py-1 md:py-2 text-center inline-flex items-center rounded-full">
                                         <img
                                             className="w-6 md:w-7 me-1 md:me-2"
-                                            src="/src/assets/share.png"
+                                            src={share}
                                             alt="like button"
                                         />
                                         Share
@@ -151,7 +159,7 @@ const WatchPage = () => {
                                     <button className="bg-[#f1f1f1] hover:bg-[#e4e2e2]/90 text-sm md:text-base font-medium px-2 sm:px-4 py-1 md:py-2 text-center inline-flex items-center rounded-full">
                                         <img
                                             className="w-6 md:w-7 me-1 md:me-2"
-                                            src="/src/assets/download.png"
+                                            src={download}
                                             alt="like button"
                                         />
                                         Download
@@ -179,7 +187,7 @@ const WatchPage = () => {
                             className="flex items-center gap-2 md:gap-3 border-t px-2 md:px-6 py-2"
                             onSubmit={(e) => handleSubmit(e)}
                         >
-                            <img src="/src/assets/comment-user2.png" className="w-7 md:w-8" alt="User icon" />
+                            <img src={commentUser2} className="w-7 md:w-8" alt="User icon" />
                             <input
                                 type="text"
                                 className="w-full bg-[#f1f1f1] border-none rounded-full px-3 py-1.5 focus:outline-none"
@@ -188,7 +196,7 @@ const WatchPage = () => {
                                 required
                             />
                             <button type="submit" className="p-2 hover:bg-[#f1f1f1] rounded-full">
-                                <img className="w-6 md:w-7" src="/src/assets/send.png" alt="send" />
+                                <img className="w-6 md:w-7" src={send} alt="send" />
                             </button>
                         </form>
                     </div>

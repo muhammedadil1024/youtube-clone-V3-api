@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import useWindowDimensions from "../../utils/useWindowDimensions";
 import { closeMenu } from "../../utils/redux/appSlice";
 import { useEffect } from "react";
+// static images
+import home32 from "../../assets/home-32.png";
+import shorts from "../../assets/shorts.png";
+import subscription from "../../assets/subscription.png";
 
 const Sidebar = () => {
     // subscribing to specific store, to show menu sidebar links
@@ -35,16 +39,16 @@ const Sidebar = () => {
                     <div>
                         <Link to={"/"}>
                             <div className="flex items-center gap-5 hover:bg-gray-100 px-1 rounded-lg">
-                                <img src="/src/assets/home-32.png" className="w-6" alt="home" />
+                                <img src={home32} className="w-6" alt="home" />
                                 <h2 className="text-[1.2rem]  py-1">Home </h2>
                             </div>
                         </Link>
                         <div className="flex items-center gap-5 hover:bg-gray-100 px-1 rounded-lg">
-                            <img src="/src/assets/shorts.png" className="w-6" alt="shorts" />
+                            <img src={shorts} className="w-6" alt="shorts" />
                             <h2 className="text-[1.2rem]  py-1 cursor-pointer">Shorts</h2>
                         </div>
                         <div className="flex items-center gap-5 hover:bg-gray-100 px-1 rounded-lg">
-                            <img src="/src/assets/subscription.png" className="w-6" alt="subscription" />
+                            <img src={subscription} className="w-6" alt="subscription" />
                             <h2 className="text-[1.2rem] py-1 mb-2 cursor-pointer">Subscriptions</h2>
                         </div>
                     </div>
@@ -95,20 +99,20 @@ const Sidebar = () => {
                             <div>
                                 <Link to={"/"} onClick={handleClose}>
                                     <div className="flex items-center gap-5 hover:bg-gray-100 px-1 rounded-lg">
-                                        <img src="/src/assets/home-32.png" className="w-5" alt="home" />
+                                        <img src={home32} className="w-5" alt="home" />
                                         <h2 className="text-[1.1rem] py-1">Home</h2>
                                     </div>
                                 </Link>
                                 <div className="flex items-center gap-5 hover:bg-gray-100 px-1 rounded-lg">
                                     <img
-                                        src="/src/assets/shorts.png"
+                                        src={shorts}
                                         className="w-5"
                                         alt="shorts"
                                     />
                                     <h2 className="text-[1.1rem]  py-1 cursor-pointer">Shorts</h2>
                                 </div>
                                 <div className="flex items-center gap-5 hover:bg-gray-100 px-1 rounded-lg">
-                                    <img src="/src/assets/subscription.png" className="w-5" alt="subscription" />
+                                    <img src={subscription} className="w-5" alt="subscription" />
                                     <h2 className="text-[1.1rem] py-1 mb-2 cursor-pointer">Subscriptions</h2>
                                 </div>
                             </div>

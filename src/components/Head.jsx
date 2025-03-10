@@ -5,6 +5,12 @@ import { YOUTUBE_SEARCH_API } from "../utils/config";
 import { cacheResults } from "../utils/redux/searchSlice";
 import { Link, useNavigate } from "react-router-dom";
 import useWindowDimensions from "../utils/useWindowDimensions";
+// static images
+import hamburgerMenu from "../assets/hamburger-menu.png";
+import youtubeLogo from "../assets/youtube-logo.jpg";
+import search from "../assets/search.png";
+import leftArrow from "../assets/left-arrow.png";
+import commentUser2 from "../assets/comment-user2.png";
 
 const Head = () => {
     const [searchQuery, setSearchQuery] = useState("");
@@ -33,6 +39,7 @@ const Head = () => {
             const timer = setTimeout(() => {
                 const getSearchSuggestion = async () => {
                     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+                    console.log(data)
                     if (!data.ok) {
                         throw new Error("Failed to load data, check your connection and try again");
                     }
@@ -79,13 +86,13 @@ const Head = () => {
             {/* hamburger menu and youtube logo */}
             <div className="flex items-center justify-self-start">
                 <img
-                    src="/src/assets/hamburger-menu.png"
+                    src={hamburgerMenu}
                     onClick={() => toggleMenuHandler()}
                     className="w-9 h-9 cursor-pointer"
                     alt="Menu icon"
                 />
                 <Link to={"/"}>
-                    <img src="/src/assets/youtube-logo.jpg" className="w-28" alt="Youtube logo" />
+                    <img src={youtubeLogo} className="w-28" alt="Youtube logo" />
                 </Link>
             </div>
             {/* search input box, this will be inside a modal box when the screen size is below 768px */}
@@ -121,7 +128,7 @@ const Head = () => {
                         aria-controls="default-modal"
                         aria-expanded={isModalVisible}
                     >
-                        <img src="/src/assets/search.png" className="w-4" alt="Search icon" />
+                        <img src={search} className="w-4" alt="Search icon" />
                     </button>
                 </div>
                 {/* ------------------------------------------------ Modal - start ---------------------------------------------------- */}
@@ -147,7 +154,7 @@ const Head = () => {
                                             className="hover:bg-[#e9e9e9] rounded-full text-sm w-9 h-8 ms-auto inline-flex justify-center items-center"
                                             onClick={toggleModal} // Close modal
                                         >
-                                            <img src="/src/assets/left-arrow.png" className="w-6" alt="left arrow" />
+                                            <img src={leftArrow} className="w-6" alt="left arrow" />
                                             <span className="sr-only">Close modal</span>
                                         </button>
                                         {/* modal's inside input box */}
@@ -163,23 +170,22 @@ const Head = () => {
                                         />
                                     </div>
                                     {/* Modal body - the suggestion will appear here on modal body */}
-            
-                                        {!widthMd && showSuggestions && searchQuery.length !== 0 && (
-                                            <div className="w-full px-2">
-                                                <ul>
-                                                    {suggestions?.map((suggestion) => (
-                                                        <li
-                                                            key={suggestion}
-                                                            className="py-[0.37rem] px-2 font-medium italic hover:bg-gray-100 cursor-default"
-                                                            onMouseDown={() => handleSuggestionClick(suggestion)}
-                                                        >
-                                                            {suggestion ? suggestion : undefined}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        )}
-                                    
+
+                                    {!widthMd && showSuggestions && searchQuery.length !== 0 && (
+                                        <div className="w-full px-2">
+                                            <ul>
+                                                {suggestions?.map((suggestion) => (
+                                                    <li
+                                                        key={suggestion}
+                                                        className="py-[0.37rem] px-2 font-medium italic hover:bg-gray-100 cursor-default"
+                                                        onMouseDown={() => handleSuggestionClick(suggestion)}
+                                                    >
+                                                        {suggestion ? suggestion : undefined}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -209,7 +215,7 @@ const Head = () => {
             </div>
             {/* user icon */}
             <div className="justify-self-end content-center">
-                <img src="/src/assets/comment-user2.png" className="w-7 md:w-8 mr-1 cursor-pointer" alt="User icon" />
+                <img src={commentUser2} className="w-7 md:w-8 mr-1 cursor-pointer" alt="User icon" />
             </div>
         </div>
     );

@@ -1,3 +1,6 @@
+import tick from "../../../assets/tick.png";
+import user from "../../../assets/user.png";
+
 // displaying each search result video
 const SearchVideoCard = ({ info }) => {
     const { channelTitle, title, thumbnails, publishedAt, description } = info.snippet;
@@ -19,7 +22,7 @@ const SearchVideoCard = ({ info }) => {
                     <div className="">
                         <div className="flex items-center">
                             <h2 className="py-2 font-semibold px-1 overflow-clip text-xl">{title}</h2>
-                            <img src="/src/assets/tick.png" className="w-4 h-4" alt="tick" />
+                            <img src={tick} className="w-4 h-4" alt="tick" />
                         </div>
                         <h5 className="px-1 text-[#606060] font-medium">Joined {publishedAt.slice(0, 10)}</h5>
                         <p className="px-1 text-[#606060] hidden sm:block">{description}</p>
@@ -43,9 +46,9 @@ const SearchVideoCard = ({ info }) => {
                     <div className="">
                         <h2 className="py-2 font-semibold px-1 overflow-clip">{title}</h2>
                         <div className="flex items-center">
-                            <img className="w-7" src="/src/assets/user.png" alt="User" />
+                            <img className="w-7" src={user} alt="User" />
                             <h5 className="pl-2 px-1 py-2 text-[#606060] font-medium">{channelTitle}</h5>
-                            <img src="/src/assets/tick.png" className="w-4 h-4" alt="tick" />
+                            <img src={tick} className="w-4 h-4" alt="tick" />
                         </div>
                         <h5 className="px-1 py-1 text-[#606060] font-medium">Date Published {publishedAt.slice(0, 10)}</h5>
                         <p className="px-1 py-1 text-[#606060] hidden sm:block">{description}</p>
